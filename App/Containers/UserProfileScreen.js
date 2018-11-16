@@ -2,7 +2,19 @@ import React, { Component } from 'react'
 import { ScrollView, KeyboardAvoidingView, View, Text } from 'react-native'
 import { connect } from 'react-redux'
 import AppHeader from '../Components/AppHeader';
-import { Container, Content, Thumbnail, Form, Input, Icon, Item, CheckBox, ListItem, DatePicker } from 'native-base';
+import {
+  Container,
+  Content,
+  Thumbnail,
+  Form,
+  Input,
+  Item,
+  CheckBox,
+  ListItem,
+  DatePicker,
+  Button
+} from 'native-base';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 
@@ -15,15 +27,28 @@ class UserProfileScreen extends Component {
       <Container>
         {/* <AppHeader /> */}
         <Content>
-          <View style={{ height: 200, backgroundColor: '#aaa' }}>
+          <View style={{ height: 130, backgroundColor: '#156568' }}>
+            <Button transparent style={{ position: 'absolute', top: 5, left: 5 }}>
+              <Icon name="arrow-left" size={30} color="white" />
+            </Button>
+          </View>
+          <View style={{ marginTop: -50, marginLeft: 'auto', marginRight: 'auto', width: 100, height: 100, }}>
             <Thumbnail
               large
-              style={{ marginLeft: 'auto', marginRight: 'auto', width: 100, height: 100, marginTop: 35 }}
+              style={{ width: 100, height: 100, }}
               source={{ uri: 'https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_thumb,g_face,r_max/face_left.png' }}
             />
-            <Text style={{ fontSize: 20, marginLeft: 'auto', marginRight: 'auto', color: 'white' }}>Nguyễn Văn A</Text>
+            <Button rounded style={{ position: 'absolute', top: 65, right: 10, backgroundColor: 'white' }}>
+              <Icon name="camera" size={20} color="#aaa" />
+            </Button>
           </View>
-          <ScrollView style={{ padding: 15 }}>
+          <View>
+            <Text style={{ fontSize: 20, marginLeft: 'auto', marginRight: 'auto', color: 'black' }}>Nguyễn Văn A</Text>
+            <Button transparent>
+              <Icon name="pencil" size={20} color="#aaa" />
+            </Button>
+          </View>
+          {/* <ScrollView style={{ padding: 15 }}>
             <KeyboardAvoidingView
               behavior="padding"
               style={styles.fullScreenHeight}
@@ -31,7 +56,6 @@ class UserProfileScreen extends Component {
               <Form>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                   <View style={{ flexBasis: '25%', display: 'flex', flexDirection: 'row', marginTop: 10 }}>
-                    <Icon ios="ios-person" android="md-person" />
                     <Text style={{ lineHeight: 35, marginLeft: 5, fontSize: 14 }}>Họ tên:</Text>
                   </View>
                   <Item regular style={{ flexBasis: '75%', height: 40 }}>
@@ -47,27 +71,22 @@ class UserProfileScreen extends Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                   <View style={{ flexBasis: '25%', display: 'flex', flexDirection: 'row', marginTop: 10 }}>
-                    <Icon ios="ios-person" android="md-person" />
                     <Text style={{ lineHeight: 35, marginLeft: 5, fontSize: 14 }}>Giới tính:</Text>
                   </View>
                   <View regular style={{ flexBasis: '75%', height: 40, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
                     <ListItem>
                       <CheckBox checked={true} />
                       <Text>Nam</Text>
-                      {/* <Body>
-                      </Body> */}
                     </ListItem>
                     <ListItem>
                       <CheckBox checked={true} />
                       <Text>Nữ</Text>
-                      {/* <Body>
-                      </Body> */}
+                     
                     </ListItem>
                   </View>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row' }}>
                   <View style={{ flexBasis: '25%', display: 'flex', flexDirection: 'row', marginTop: 10 }}>
-                    <Icon ios="ios-person" android="md-person" />
                     <Text style={{ lineHeight: 35, marginLeft: 5, fontSize: 14 }}>Ngày sinh:</Text>
                   </View>
                   <View regular style={{ flexBasis: '75%', height: 40, display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
@@ -83,38 +102,12 @@ class UserProfileScreen extends Component {
                       placeHolderText="Chọn một ng"
                       textStyle={{ color: "green" }}
                       placeHolderTextStyle={{ color: "#d3d3d3" }}
-                    // onDateChange={this.setDate}
                     />
                   </View>
                 </View>
-                {/* <Item rounded>
-                  <Icon ios="ios-person" android="md-person" />
-                  <Input
-                    placeholder="Họ tên"
-                    ref="phone"
-                    keyboardType="phone-pad"
-                    returnKeyType="next"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    underlineColorAndroid="transparent"
-                  />
-                </Item>
-                <Item rounded>
-                  <Icon ios="ios-person" android="md-person" />
-                  <Input
-                    placeholder="Họ tên"
-                    ref="phone"
-                    keyboardType="phone-pad"
-                    returnKeyType="next"
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    underlineColorAndroid="transparent"
-                  />
-                </Item> */}
-
               </Form>
             </KeyboardAvoidingView>
-          </ScrollView>
+          </ScrollView> */}
         </Content>
       </Container>
     )

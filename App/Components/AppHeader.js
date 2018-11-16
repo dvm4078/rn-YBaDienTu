@@ -4,12 +4,15 @@ import { View } from 'react-native';
 import {
   Header,
   Button,
-  Icon,
+  // Icon,
   Input,
   Item,
 } from 'native-base';
 import { connect } from 'react-redux';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import styles from './Styles/AppHeaderStyle';
+
+import {USER_PROFILE_SCREEN} from '../Navigation/ScreenNames';
 
 export class AppHeader extends Component {
   // Prop type warnings
@@ -17,6 +20,7 @@ export class AppHeader extends Component {
     camera: PropTypes.bool,
     showLeft: PropTypes.bool,
     showRight: PropTypes.bool,
+    goToProfileScreen: PropTypes.func,
   };
 
   // Defaults for props
@@ -24,7 +28,9 @@ export class AppHeader extends Component {
     showLeft: true,
     showRight: true,
     camera: true,
+    goToProfileScreen: () => {},
   };
+
 
   render() {
     const { showLeft, showRight, camera } = this.props;
@@ -33,20 +39,11 @@ export class AppHeader extends Component {
       <Header searchBar rounded>
         {showLeft && (
           <Button style={styles.button}>
-            <Icon
-              ios={camera ? 'ios-camera' : 'ios-arrow-back'}
-              android={camera ? 'md-camera' : 'md-arrow-back'}
-            />
+          <Icon name="camera" size={30} color="white"/>
           </Button>
         )}
-        <Item style={styles.searchbox}>
-          <Icon
-            active
-            ios="ios-search"
-            android="md-search"
-            style={styles.searchicon}
-            onPress={() => this.searchInput._root.focus()}
-          />
+        <Item style={styles.searchbox} >
+        <Icon name="magnifier" size={20} color="#aaa"/>
           <Input
             placeholder="Search"
             ref={ref => (this.searchInput = ref)}
@@ -55,8 +52,8 @@ export class AppHeader extends Component {
           />
         </Item>
         {showRight && (
-          <Button style={styles.button}>
-            <Icon ios="ios-person" android="md-person" />
+          <Button style={styles.button} onPress={this.props.goToProfileScreen}>
+            <Icon name="people" size={30} color="white"/>
           </Button>
         )}
       </Header>

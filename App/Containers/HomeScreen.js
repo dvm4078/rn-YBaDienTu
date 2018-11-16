@@ -3,14 +3,18 @@ import { ScrollView, KeyboardAvoidingView } from 'react-native';
 import { connect } from 'react-redux';
 import {
   Container,
-  Header,
+  List, 
+  ListItem,
   Content,
   Text,
-  Left,
-  Right,
-  Body,
-  Footer, FooterTab, Button
+  Separator,
+  Tab,
+  // Icon,
+  Tabs,
+  TabHeading,
+  Footer, FooterTab, Button, Thumbnail
 } from 'native-base';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import AppHeader from '../Components/AppHeader';
 import { USER_PROFILE_SCREEN } from '../Navigation/ScreenNames';
 // Add Actions - replace 'Your' with whatever your reducer is called :)
@@ -34,26 +38,94 @@ class HomeScreen extends Component {
   render() {
     return (
       <Container>
-        <AppHeader />
-        <Content padder>
-          <Text onPress={this.goToProfileScreen}>This is content</Text>
-        </Content>
-        <Footer>
-          <FooterTab>
-            <Button>
+        <AppHeader goToProfileScreen={this.goToProfileScreen}/>
+        <Content>
+          <Tabs locked>
+            <Tab heading={<TabHeading><Icon name="heart" size={30} color="white"/><Text>Tổng quan</Text></TabHeading>}>
+              <Content>
+                <Separator bordered style={styles.listItemSeparator}>
+                  <Text style={styles.listItemSeparatorText}>12/03/2018</Text>
+                  <Text style={{marginRight: 5}}>Chi tiết</Text>
+                </Separator>
+                <ListItem>
+                  <Text>Ghi chú 12/03/2018</Text>
+                </ListItem>
+                <ScrollView horizontal>
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                </ScrollView>
+                <Separator bordered style={styles.listItemSeparator}>
+                  <Text style={styles.listItemSeparatorText}>11/03/2018</Text>
+                  <Text style={{marginRight: 5}}>Chi tiết</Text>
+                </Separator>
+                <ListItem>
+                  <Text>Ghi chú 11/03/2018</Text>
+                </ListItem>
+                <ScrollView horizontal>
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                </ScrollView>
+                <Separator bordered style={styles.listItemSeparator}>
+                  <Text style={styles.listItemSeparatorText}>10/03/2018</Text>
+                  <Text style={{marginRight: 5}}>Chi tiết</Text>
+                </Separator>
+                <ListItem>
+                  <Text>Ghi chú 10/03/2018</Text>
+                </ListItem>
+                <ScrollView horizontal>
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                </ScrollView>
+                <Separator bordered style={styles.listItemSeparator}>
+                  <Text style={styles.listItemSeparatorText}>09/03/2018</Text>
+                  <Text style={{marginRight: 5}}>Chi tiết</Text>
+                </Separator>
+                <ListItem>
+                  <Text>Ghi chú 09/03/2018</Text>
+                </ListItem>
+                <ScrollView horizontal>
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                  <Thumbnail style={styles.thumbnail} square large source={{uri: 'https://image.freepik.com/free-icon/picture-frame-with-mountain-image_318-40293.jpg'}} />
+                </ScrollView>
+              </Content>
+            </Tab>
+            <Tab heading={<TabHeading><Icon name="chart" size={30} color="white"/><Text>Biểu đồ</Text></TabHeading>}>
               <Text>Apps</Text>
-            </Button>
-            <Button>
-              <Text>Camera</Text>
-            </Button>
+            </Tab>
+          </Tabs>
+        </Content>
+        {/* <Footer>
+          <FooterTab>
             <Button active>
-              <Text>Navigate</Text>
+              <Icon name="home" size={30} color="white"/>
             </Button>
             <Button>
-              <Text>Contact</Text>
+              <Icon name="calendar" size={30} color="white"/>
+            </Button>
+            <Button>
+              <Icon name="user" size={30} color="white"/>
+            </Button>
+            <Button>
+              <Icon name="settings" size={30} color="white"/>
             </Button>
           </FooterTab>
-        </Footer>
+        </Footer> */}
       </Container>
     );
   }
